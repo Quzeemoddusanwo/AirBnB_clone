@@ -27,12 +27,15 @@ class HBNBCommand(cmd.Cmd):
 
     def my_errors(self, line, num_of_args):
         """Displays error messages to user
+        
         Args:
             line(any): gets user input using command line
             num_of_args(int): number of input arguments
+            
         Description:
             Displays output to the use based on
             the input commands.
+            
         """
         classes = ["BaseModel", "User", "State", "City",
                    "Amenity", "Place", "Review"]
@@ -82,26 +85,32 @@ class HBNBCommand(cmd.Cmd):
 
     def do_quit(self, line):
         """Handles the 'quit' command
+        
         Args:
             line(args): input argument for quiting
             the terminal
+            
         """
         return True
 
     def do_EOF(self, line):
         """Quits command interpreter with ctrl+d
+        
          Args:
             line(args): input argument for quiting
             the terminal
+            
         """
         return True
 
     def do_create(self, line):
         """Creates a new instance of @cls_name class,
         and prints the new instance's ID.
+        
         Args:
             line(args): Arguments to enter with command: <class name>
             Example: 'create User'
+            
         """
         if (self.my_errors(line, 1) == 1):
             return
@@ -119,9 +128,11 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, line):
         """Prints a string representation of an instance.
+        
         Args:
             line(line): to enter with command <class name> <id>
             Example: 'show User 1234-1234-1234'
+            
         """
         if (self.my_errors(line, 2) == 1):
             return
@@ -134,9 +145,11 @@ class HBNBCommand(cmd.Cmd):
 
     def do_destroy(self, line):
         """Deletes an instance of a certain class.
+        
         Args:
             line(args): to enter with command: <class name> <id>
             Example: 'destroy User 1234-1234-1234'
+            
         """
         if (self.my_errors(line, 2) == 1):
             return
@@ -150,9 +163,11 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, line):
         """Shows all instances, or instances of a certain class
+        
         Args: 
             line(args): enter with command (optional): <class name>
             Example: 'all' OR 'all User'
+            
         """
         d = storage.all()
         if not line:
@@ -167,10 +182,12 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, line):
         """Updates an instance based on the class name
         and id by adding or updating an attribute
+        
         Args:
             line(args): receives the commands:
             <class name> <id> <attribute name> "<attribute value>"
             Example: 'update User 1234-1234-1234 my_name "Bob"'
+            
         """
         if (self.my_errors(line, 4) == 1):
             return
@@ -217,10 +234,12 @@ class HBNBCommand(cmd.Cmd):
         <class name>.destroy(<id>)
         <class name>.update(<id>, <attribute name>, <attribute value>)
         <class name>.update(<id>, <dictionary representation)
+        
         Description:
             Creates a list representations of functional models
             Then use the functional methods to implement user
             commands, by validating all the input commands
+            
         """
         names = ["BaseModel", "User", "State", "City", "Amenity",
                  "Place", "Review"]
